@@ -1,0 +1,98 @@
+/* Reviews Section */
+.reviews {
+    padding: 5rem 2rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+.reviews h2 {
+    font-size: 2rem;
+    color: #2a3f9d;
+    margin-bottom: 0.5rem;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+}
+
+.review-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.review-rating {
+    color: #ffb400;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.review-text {
+    color: #555;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.author-info h4 {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.2rem;
+}
+
+.author-info p {
+    color: #777;
+    font-size: 0.85rem;
+}
+
+.all-reviews-link {
+    margin-top: 2rem;
+}
+
+.all-reviews-link a {
+    color: #4a6bff;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+}
+
+.all-reviews-link a:hover {
+    text-decoration: underline;
+}
+
+.all-reviews-link a::after {
+    content: '→';
+    margin-left: 0.5rem;
+    transition: margin-left 0.3s;
+}
+
+.all-reviews-link a:hover::after {
+    margin-left: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .reviews-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+}
