@@ -1,0 +1,250 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Service Card */
+.service-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    width: 320px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: #4a6bff;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    color: #2a3f9d;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.service-price {
+    font-weight: bold;
+    color: #4a6bff;
+    margin: 20px 0;
+    font-size: 1.1rem;
+}
+
+/* Book Now Button */
+.book-now-btn {
+    background: #4a6bff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.book-now-btn:hover {
+    background: #3a5bef;
+    box-shadow: 0 5px 15px rgba(58, 91, 239, 0.3);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+    position: relative;
+    animation: modalopen 0.4s;
+}
+
+@keyframes modalopen {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close-btn {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.modal h2 {
+    color: #2a3f9d;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #4a6bff;
+    outline: none;
+}
+
+/* Budget Input Styles */
+.budget-container {
+    position: relative;
+}
+
+.budget-container input[type="number"] {
+    padding-left: 40px;
+}
+
+.currency {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    font-weight: bold;
+    color: #666;
+}
+
+.budget-slider {
+    margin-top: 15px;
+}
+
+.slider {
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #4a6bff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: #4a6bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submit-btn:hover {
+    background: #3a5bef;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .modal-content {
+        margin: 20% auto;
+        padding: 20px;
+    }
+    
+    .service-card {
+        width: 100%;
+    }
+}

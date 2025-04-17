@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeHelper - Book Services</title>
+    <link rel="stylesheet" href="booknow.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Service Card Example -->
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-broom"></i>
+            </div>
+            <h3>Home Cleaning</h3>
+            <p>Professional cleaning services at affordable rates</p>
+            <div class="service-price">From $25/hour</div>
+            <button class="book-now-btn" id="openBookingBtn">
+                <i class="fas fa-calendar-alt"></i> Book Now
+            </button>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2><i class="fas fa-calendar-check"></i> Book Service</h2>
+            
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="service"><i class="fas fa-tools"></i> Service</label>
+                    <input type="text" id="service" value="Home Cleaning" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location"><i class="fas fa-map-marker-alt"></i> Nearby Location</label>
+                    <select id="location" required>
+                        <option value="">Select your area</option>
+                        <option value="downtown">Downtown</option>
+                        <option value="suburbs">Suburbs</option>
+                        <option value="north">North Area</option>
+                        <option value="south">South Area</option>
+                        <option value="east">East District</option>
+                        <option value="west">West District</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget"><i class="fas fa-wallet"></i> Your Budget ($)</label>
+                    <div class="budget-container">
+                        <input type="number" id="budget" min="20" max="500" value="50" required>
+                        <span class="currency">USD</span>
+                        <div class="budget-slider">
+                            <input type="range" min="20" max="500" value="50" class="slider" id="budgetRange">
+                            <div class="slider-labels">
+                                <span>$20</span>
+                                <span>$260</span>
+                                <span>$500</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date"><i class="fas fa-calendar-day"></i> Preferred Date</label>
+                    <input type="date" id="date" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-check-circle"></i> Confirm Booking
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById("bookingModal");
+        const btn = document.getElementById("openBookingBtn");
+        const span = document.getElementsByClassName("close-btn")[0];
+        
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        // Budget slider sync
+        const budgetInput = document.getElementById("budget");
+        const budgetRange = document.getElementById("budgetRange");
+        
+        budgetRange.addEventListener("input", function() {
+            budgetInput.value = this.value;
+        });
+        
+        budgetInput.addEventListener("input", function() {
+            budgetRange.value = this.value;
+        });
+        
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById("date").min = today;
+        
+        // Form submission
+        document.getElementById("bookingForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("Booking submitted successfully!");
+            modal.style.display = "none";
+        });
+    </script>
+</body>
+</html>
